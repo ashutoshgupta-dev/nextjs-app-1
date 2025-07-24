@@ -13,7 +13,7 @@ type records={
 }
 
 
-type actionType={type:"add-task";payload:student} |{type:"delete-task";payload:number}|{type:"update";payload:student;index:number}
+type actionType={type:"add-task";payload:student} |{type:"delete-task";payload:number}|{type:"update";payload:{updatedData:student,index:number}}
 
 type contextType={
     state:records;
@@ -28,11 +28,10 @@ const reducer=(state:records,action:actionType):records=>{
       case'add-task': return {students:[...state.students ,action.payload]}
       case 'delete-task': const updated=state.students.filter((_,idx)=>idx!==action.payload);
                            return {students:updated}
-      case'update':  const updatedStudentData=action.payload;
-                     const targetIndex=action.index;
-                     return {students:[...state.students,updatedStudentData]}
-                        
-                     
+      case'update':  const arr=[...state.students];
+                     arr[action.payload.index]=action.payload.updatedData;
+                     return {students:arr}
+                               
       default:return state;
    }
 }
