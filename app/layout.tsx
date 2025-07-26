@@ -45,7 +45,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
        
         <footer className="bg-blue-600 py-[3rem] ">
             <div className="max-w-7xl  mx-auto text-center">
-                <p className="text-[1.3rem]">&copy;2025 All copy Rights Reserved | ❤️ Developed by Next.js developer</p>
+                <p className="text-[1.3rem] text-white">&copy;2025 All copy Rights Reserved | ❤️ Developed by Next.js developer</p>
             </div>
         </footer>
         </DataProvider>
